@@ -16,10 +16,10 @@ namespace BoltFreezer.FileIO
 {
     public static class Parser
     {
-        public static string path = @"D:\Documents\Frostbow\VHPOP\";
+        public static string path = @"/Users/recardona/Developer/Frostbow/";
 
         // Returns the project's top directory as a string.
-        public static string GetTopDirectory ()
+        public static string GetTopDirectory()
         {
             // Split the current directory path by \.
             string[] splPath = Directory.GetCurrentDirectory().Split('\\');
@@ -35,16 +35,16 @@ namespace BoltFreezer.FileIO
             // Return the new path string.
             //return @"C:\MediationService\";
             //return @"J:\Code\Mediation\GME\";
-            #if (DEBUG)
-                //path = @"J:\Code\Mediation\GME\";
-            #endif
+#if (DEBUG)
+            //path = @"J:\Code\Mediation\GME\";
+#endif
 
             if (path.Equals("")) return topDir;
             else return path;
         }
 
         // Returns the project's top directory for a sh script.
-        public static string GetScriptDirectory ()
+        public static string GetScriptDirectory()
         {
             // Remove the drive colon from the top directory's path.
             string shDir = Regex.Replace(GetTopDirectory(), ":", "");
@@ -60,7 +60,7 @@ namespace BoltFreezer.FileIO
         }
 
         // Reads in a plan from a file.
-        public static Plan GetPlan (string file, Domain domain, Problem problem)
+        public static Plan GetPlan(string file, Domain domain, Problem problem)
         {
             // The plan object.
             Plan plan = new Plan();
@@ -248,7 +248,7 @@ namespace BoltFreezer.FileIO
         }
 
         // Reads in a domain from a file.
-        public static Domain GetDomain (string file, PlanType type)
+        public static Domain GetDomain(string file, PlanType type)
         {
             bool readInStat = true;
             int start = 0;
@@ -263,7 +263,7 @@ namespace BoltFreezer.FileIO
             string input = System.IO.File.ReadAllText(file);
 
             // Split the input string by space, line feed, character return, and tab.
-            string[] words = input.Split(new char[] {' ', '\r', '\n', '\t'});
+            string[] words = input.Split(new char[] { ' ', '\r', '\n', '\t' });
 
             // Remove all empty elements of the word array.
             words = words.Where(x => !string.IsNullOrEmpty(x)).ToArray();
@@ -381,7 +381,7 @@ namespace BoltFreezer.FileIO
                         {
                             // Create a new term using the variable name.
                             Term term = new Term(Regex.Replace(words[i], @"\t|\n|\r|[()]", ""));
-                            
+
                             // Check if the term has a specified type.
                             if (Regex.Replace(words[i + 1], @"\t|\n|\r", "").Equals("-"))
                             {
@@ -404,7 +404,7 @@ namespace BoltFreezer.FileIO
                     {
                         if (words[i][0] == '(')
                         {
-                            if(!words[i].Equals("(and"))
+                            if (!words[i].Equals("(and"))
                             {
                                 // Create a new precondition object.
                                 Predicate pred = new Predicate();
@@ -454,7 +454,7 @@ namespace BoltFreezer.FileIO
                             {
                                 // Create a new axiom object.
                                 Axiom axiom = new Axiom();
-                                
+
                                 if (words[i].Equals("(forall"))
                                 {
                                     // Read in the axiom's terms.
@@ -699,7 +699,7 @@ namespace BoltFreezer.FileIO
         }
 
         // Reads in a problem from a file.
-        public static Problem GetProblem (string file)
+        public static Problem GetProblem(string file)
         {
             // Create the problem object.
             Problem problem = new Problem();
@@ -736,7 +736,7 @@ namespace BoltFreezer.FileIO
                             if (!Regex.Replace(words[i], @"\t|\n|\r", "").ToLower().Equals("-"))
                                 tempObjects.Add(Regex.Replace(words[i], @"\t|\n|\r|[()]", "").ToLower());
                             else
-                            { 
+                            {
                                 // Store the specified type.
                                 string type = Regex.Replace(words[++i], @"\t|\n|\r|[()]", "").ToLower();
 
@@ -760,7 +760,7 @@ namespace BoltFreezer.FileIO
                     {
                         if (words[i][0] == '(')
                         {
-                           
+
                             // Create a new predicate object.
                             Predicate pred = new Predicate();
 
@@ -786,7 +786,7 @@ namespace BoltFreezer.FileIO
 
                             // Add the predicate to the initial state.
                             problem.Initial.Add(pred);
-                            
+
                         }
                     }
 
@@ -834,10 +834,10 @@ namespace BoltFreezer.FileIO
         }
 
         // Reads in a problem and fills in its object types.
-        public static Problem GetProblemWithTypes (string file, Domain domain)
+        public static Problem GetProblemWithTypes(string file, Domain domain)
         {
             // Read the problem file into an object.
-            Problem problem = GetProblem (file);
+            Problem problem = GetProblem(file);
 
             // Add type associations to each object.
             foreach (string type in domain.ObjectTypes)

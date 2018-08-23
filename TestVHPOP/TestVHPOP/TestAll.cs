@@ -30,16 +30,16 @@ namespace TestVHPOP
         {
 
             Console.Write("hello world\n");
-            
+
             var cutoff = 6000f;
             var k = 1;
 
             var testDomainName = "batman";
             var directory = Parser.GetTopDirectory() + @"/Results/" + testDomainName + @"/";
             System.IO.Directory.CreateDirectory(directory);
-            var testDomainDirectory = Parser.GetTopDirectory() + @"Benchmarks\" + testDomainName + @"\domain.pddl";
-            var testDomain = Parser.GetDomain(Parser.GetTopDirectory() + @"Benchmarks\" + testDomainName + @"\domain.pddl", PlanType.PlanSpace);
-            var testProblem = Parser.GetProblem(Parser.GetTopDirectory() + @"Benchmarks\" + testDomainName + @"\prob01.pddl");
+            var testDomainDirectory = Parser.GetTopDirectory() + @"Benchmarks/" + testDomainName + @"/domain.pddl";
+            var testDomain = Parser.GetDomain(Parser.GetTopDirectory() + @"Benchmarks/" + testDomainName + @"/domain.pddl", PlanType.PlanSpace);
+            var testProblem = Parser.GetProblem(Parser.GetTopDirectory() + @"Benchmarks/" + testDomainName + @"/prob01.pddl");
 
             Console.WriteLine("Creating Ground Operators");
             GroundActionFactory.Reset();
@@ -53,7 +53,7 @@ namespace TestVHPOP
             var iniTstate = new State(testProblem.Initial) as IState;
             CacheMaps.CacheAddReuseHeuristic(iniTstate);
 
-           // var problemFreezer = new ProblemFreezer(testDomainName, testDomainDirectory, testDomain, testProblem);
+            // var problemFreezer = new ProblemFreezer(testDomainName, testDomainDirectory, testDomain, testProblem);
 
             //problemFreezer.Serialize();
             //problemFreezer.Deserialize();
