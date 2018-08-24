@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{7808A28C-25A9-4230-9662-0C414FFDB0AE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Frostbow</RootNamespace>
+    <AssemblyName>Frostbow</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CacheTools\CacheMaps.cs" />
+    <Compile Include="CacheTools\GroundActionFactory.cs" />
+    <Compile Include="CacheTools\ProblemFreezer.cs" />
+    <Compile Include="FileIO\BinarySerializer.cs" />
+    <Compile Include="FileIO\Parser.cs" />
+    <Compile Include="FileIO\Writer.cs" />
+    <Compile Include="Utilities\BinaryHeap.cs" />
+    <Compile Include="Utilities\EnumerableExtension.cs" />
+    <Compile Include="Utilities\Logger.cs" />
+    <Compile Include="Utilities\PredicateComparer.cs" />
+    <Compile Include="Utilities\PredicateListComparer.cs" />
+    <Compile Include="Utilities\Tuple.cs" />
+    <Compile Include="Utilities\TupleMap.cs" />
+    <Compile Include="PriorityQueue\FastPriorityQueue.cs" />
+    <Compile Include="PriorityQueue\FastPriorityQueueNode.cs" />
+    <Compile Include="PriorityQueue\GenericPriorityQueue.cs" />
+    <Compile Include="PriorityQueue\GenericPriorityQueueNode.cs" />
+    <Compile Include="PriorityQueue\IFixedSizePriorityQueue.cs" />
+    <Compile Include="PriorityQueue\IPriorityQueue.cs" />
+    <Compile Include="PriorityQueue\SimplePriorityQueue.cs" />
+    <Compile Include="PriorityQueue\StablePriorityQueue.cs" />
+    <Compile Include="PriorityQueue\StablePriorityQueueNode.cs" />
+    <Compile Include="Enums\ActionType.cs" />
+    <Compile Include="Enums\FlawType.cs" />
+    <Compile Include="Enums\HeuristicType.cs" />
+    <Compile Include="Enums\PlanType.cs" />
+    <Compile Include="Enums\Planner.cs" />
+    <Compile Include="Enums\SearchType.cs" />
+    <Compile Include="Enums\SelectionType.cs" />
+    <Compile Include="Interfaces\IAxiom.cs" />
+    <Compile Include="Interfaces\IDependency.cs" />
+    <Compile Include="Interfaces\IDomain.cs" />
+    <Compile Include="Interfaces\IFlaw.cs" />
+    <Compile Include="Interfaces\IFlawLibrary.cs" />
+    <Compile Include="Interfaces\IFrontier.cs" />
+    <Compile Include="Interfaces\IHeuristic.cs" />
+    <Compile Include="Interfaces\IIntention.cs" />
+    <Compile Include="Interfaces\IObject.cs" />
+    <Compile Include="Interfaces\IOperator.cs" />
+    <Compile Include="Interfaces\IPlan.cs" />
+    <Compile Include="Interfaces\IPlanStep.cs" />
+    <Compile Include="Interfaces\IPlanner.cs" />
+    <Compile Include="Interfaces\IPredicate.cs" />
+    <Compile Include="Interfaces\IProblem.cs" />
+    <Compile Include="Interfaces\ISearch.cs" />
+    <Compile Include="Interfaces\ISelection.cs" />
+    <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="Interfaces\ITerm.cs" />
+    <Compile Include="PlanSpace\PlanSpacePlanner.cs" />
+    <Compile Include="PlanTools\Axiom.cs" />
+    <Compile Include="PlanTools\CausalLink.cs" />
+    <Compile Include="PlanTools\Domain.cs" />
+    <Compile Include="PlanTools\Flaw.cs" />
+    <Compile Include="PlanTools\Flawque.cs" />
+    <Compile Include="PlanTools\Frontier.cs" />
+    <Compile Include="PlanTools\Graph.cs" />
+    <Compile Include="PlanTools\Heuristic.cs" />
+    <Compile Include="PlanTools\Obj.cs" />
+    <Compile Include="PlanTools\Operator.cs" />
+    <Compile Include="PlanTools\Plan.cs" />
+    <Compile Include="PlanTools\PlanStep.cs" />
+    <Compile Include="PlanTools\Predicate.cs" />
+    <Compile Include="PlanTools\Problem.cs" />
+    <Compile Include="PlanTools\Search.cs" />
+    <Compile Include="PlanTools\Selection.cs" />
+    <Compile Include="PlanTools\State.cs" />
+    <Compile Include="PlanTools\Term.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Benchmarks\alien\domain.pddl" />
+    <None Include="Benchmarks\alien\prob01.pddl" />
+    <None Include="Benchmarks\alien\probrob.pddl" />
+    <None Include="Benchmarks\ark\domain.pddl" />
+    <None Include="Benchmarks\ark\prob01.pddl" />
+    <None Include="Benchmarks\arth\domain.pddl" />
+    <None Include="Benchmarks\arth\domrob.pddl" />
+    <None Include="Benchmarks\arth\prob01.pddl" />
+    <None Include="Benchmarks\arth\probrob.pddl" />
+    <None Include="Benchmarks\arthur\domain.pddl" />
+    <None Include="Benchmarks\arthur\domrob.pddl" />
+    <None Include="Benchmarks\arthur\prob01.pddl" />
+    <None Include="Benchmarks\arthur\probrob.pddl" />
+    <None Include="Benchmarks\bank\domain.pddl" />
+    <None Include="Benchmarks\bank\domrob.pddl" />
+    <None Include="Benchmarks\bank\prob01.pddl" />
+    <None Include="Benchmarks\bank\probrob.pddl" />
+    <None Include="Benchmarks\batman\domain.pddl" />
+    <None Include="Benchmarks\batman\domrob.pddl" />
+    <None Include="Benchmarks\batman\prob01.pddl" />
+    <None Include="Benchmarks\batman\probrob.pddl" />
+    <None Include="Benchmarks\cedel-test\domain.pddl" />
+    <None Include="Benchmarks\cedel-test\domrob.pddl" />
+    <None Include="Benchmarks\cedel-test\prob01.pddl" />
+    <None Include="Benchmarks\cedel-test\probrob.pddl" />
+    <None Include="Benchmarks\spy-types\domain.pddl" />
+    <None Include="Benchmarks\spy-types\domrob.pddl" />
+    <None Include="Benchmarks\spy-types\prob01.pddl" />
+    <None Include="Benchmarks\unit-test\domain.pddl" />
+    <None Include="Benchmarks\unit-test\domrob.pddl" />
+    <None Include="Benchmarks\unit-test\prob01.pddl" />
+    <None Include="Benchmarks\unit-test\probrob.pddl" />
+    <None Include="Benchmarks\zombie\domain.pddl" />
+    <None Include="Benchmarks\zombie\domrob.pddl" />
+    <None Include="Benchmarks\zombie\prob01.pddl" />
+    <None Include="Benchmarks\zombie\probrob.pddl" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
