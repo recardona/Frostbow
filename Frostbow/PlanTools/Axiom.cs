@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 
@@ -52,7 +51,7 @@ namespace BoltFreezer.PlanTools
             get { return terms.Count; }
         }
 
-        public Axiom ()
+        public Axiom()
         {
             terms = new List<ITerm>();
             preconditions = new List<IPredicate>();
@@ -60,7 +59,7 @@ namespace BoltFreezer.PlanTools
             bindings = new Hashtable();
         }
 
-        public Axiom (List<ITerm> terms, List<IPredicate> preconditions, List<IPredicate> effects, Hashtable bindings)
+        public Axiom(List<ITerm> terms, List<IPredicate> preconditions, List<IPredicate> effects, Hashtable bindings)
         {
             this.terms = terms;
             this.preconditions = preconditions;
@@ -69,7 +68,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Lock the axiom's bindings.
-        public void BindTerms ()
+        public void BindTerms()
         {
             foreach (ITerm term in terms)
                 term.Constant = bindings[term.Variable] as string;

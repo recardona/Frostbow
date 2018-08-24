@@ -1,7 +1,7 @@
 problem	1
 selection	E0-AddReuseHeuristic
 search	BestFirst
-runtime	326
+runtime	327
 opened	1147
 expanded	30
 primitives	5

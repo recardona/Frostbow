@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 using BoltFreezer.Interfaces;
@@ -35,7 +34,7 @@ namespace BoltFreezer.PlanTools
             set { types = value; }
         }
 
-        public Obj ()
+        public Obj()
         {
             name = "";
             subType = "";
@@ -49,7 +48,7 @@ namespace BoltFreezer.PlanTools
             types = new List<string>();
         }
 
-        public Obj (string name, string subType)
+        public Obj(string name, string subType)
         {
             this.name = name;
             this.subType = subType;

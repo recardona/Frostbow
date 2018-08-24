@@ -1,9 +1,8 @@
-﻿using BoltFreezer.Enums;
-using BoltFreezer.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+using BoltFreezer.Enums;
+using BoltFreezer.Interfaces;
 
 namespace BoltFreezer.PlanTools
 {
@@ -21,8 +20,9 @@ namespace BoltFreezer.PlanTools
             frontier = new PriorityQueue();
         }
 
-        public SearchType SType {
-                get { return SearchType.BestFirst;}
+        public SearchType SType
+        {
+            get { return SearchType.BestFirst; }
         }
 
         public List<IPlan> Search(IPlanner IP)
@@ -59,7 +59,7 @@ namespace BoltFreezer.PlanTools
                 {
                     watch.Stop();
                     var elapsedMs = watch.ElapsedMilliseconds;
-                    
+
                     Solutions.Add(plan);
                     if (Solutions.Count >= k)
                     {

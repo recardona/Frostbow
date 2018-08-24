@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 using BoltFreezer.Enums;
 
@@ -30,13 +26,13 @@ namespace BoltFreezer.Interfaces
         List<IPredicate> Predicates { get; set; }
 
         // Object type/sub-type pairs can be added to the domain.
-        void AddTypePair (string subType, string type);
+        void AddTypePair(string subType, string type);
 
         // Object type/sub-type lists can be added to the domain.
         void AddTypeList(List<string> subTypes, string type);
 
         // The domain has a list of all sub-types associated with a type.
-        List<string> GetSubTypesOf (string type);
+        List<string> GetSubTypesOf(string type);
 
         // Object type/contant pairs can be added to the domain.
         void AddConstantPair(string constant, string type);

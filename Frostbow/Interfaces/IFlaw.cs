@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using BoltFreezer.Enums;
+﻿using BoltFreezer.Enums;
 
 namespace BoltFreezer.Interfaces
 {

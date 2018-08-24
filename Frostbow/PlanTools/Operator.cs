@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 using BoltFreezer.Utilities;
@@ -43,7 +42,8 @@ namespace BoltFreezer.PlanTools
 
         public List<List<ITerm>> NonEqualities
         {
-            get {
+            get
+            {
                 if (nonequalities == null)
                 {
                     nonequalities = new List<List<ITerm>>();

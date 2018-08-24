@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Collections;
 
 using BoltFreezer.Interfaces;
 
@@ -47,7 +45,7 @@ namespace BoltFreezer.PlanTools
         public Flawque Flaws
         {
             get { return flaws; }
-            set { Flaws = value;  }
+            set { Flaws = value; }
         }
 
         // Access the plan's initial step.
@@ -68,7 +66,7 @@ namespace BoltFreezer.PlanTools
         public Graph<IPlanStep> Orderings
         {
             get { return orderings; }
-            set   { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
         }
 
         // Access to plan's causal links
@@ -78,7 +76,7 @@ namespace BoltFreezer.PlanTools
             set { causalLinks = value; }
         }
 
-        public Plan ()
+        public Plan()
         {
             // S
             steps = new List<IPlanStep>();
@@ -86,7 +84,7 @@ namespace BoltFreezer.PlanTools
             orderings = new Graph<IPlanStep>();
             // L
             causalLinks = new List<CausalLink<IPlanStep>>();
-            
+
             flaws = new Flawque();
             initial = new State();
             goal = new State();
@@ -178,7 +176,7 @@ namespace BoltFreezer.PlanTools
                 {
                     continue;
                 }
-                
+
                 Flaws.Add(new ThreatenedLinkFlaw(clink, possibleThreat));
             }
         }
@@ -219,7 +217,7 @@ namespace BoltFreezer.PlanTools
 
 
         // Return the first state of the plan.
-        public State GetFirstState ()
+        public State GetFirstState()
         {
             return (State)Initial.Clone();
         }
@@ -243,7 +241,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Displays the contents of the plan.
-        public override string ToString ()
+        public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -254,7 +252,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Displays the contents of the plan. THIS IS BROKEN
-        public string ToStringOrdered ()
+        public string ToStringOrdered()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -266,7 +264,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Creates a clone of the plan. (orderings, and Links are Read-only, so only their host containers are replaced)
-        public Object Clone ()
+        public Object Clone()
         {
             var newSteps = new List<IPlanStep>();
 

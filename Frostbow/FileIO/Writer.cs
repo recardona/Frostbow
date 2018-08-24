@@ -4,8 +4,6 @@ using System.IO;
 
 using BoltFreezer.Interfaces;
 using BoltFreezer.PlanTools;
-using BoltFreezer.PlanSpace;
-using BoltFreezer.Utilities;
 
 namespace BoltFreezer.FileIO
 {

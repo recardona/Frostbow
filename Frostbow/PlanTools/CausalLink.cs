@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 
@@ -47,7 +44,7 @@ namespace BoltFreezer.PlanTools
             set { tail = value; }
         }
 
-        public CausalLink ()
+        public CausalLink()
         {
             predicate = new Predicate();
             head = default(T);
@@ -55,7 +52,7 @@ namespace BoltFreezer.PlanTools
             id = System.Threading.Interlocked.Increment(ref Counter);
         }
 
-        public CausalLink (IPredicate predicate, T head, T tail)
+        public CausalLink(IPredicate predicate, T head, T tail)
         {
             this.predicate = predicate;
             this.head = head;
@@ -85,7 +82,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Returns a bound copy of the predicate.
-        public Predicate GetBoundPredicate ()
+        public Predicate GetBoundPredicate()
         {
             Predicate boundPred = (Predicate)predicate.Clone();
             return boundPred;
@@ -99,7 +96,7 @@ namespace BoltFreezer.PlanTools
             sb.AppendLine("Predicate: " + predicate);
 
             sb.AppendLine("Tail: " + tail.ToString());
-            
+
             sb.AppendLine("Head: " + head.ToString());
 
             sb.AppendLine("ID: " + ID.ToString());

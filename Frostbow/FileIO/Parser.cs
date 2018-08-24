@@ -1,16 +1,12 @@
 ﻿#define DEBUG
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Text.RegularExpressions;
 
 using BoltFreezer.Interfaces;
 using BoltFreezer.PlanTools;
 using BoltFreezer.Enums;
-using System;
 
 namespace BoltFreezer.FileIO
 {

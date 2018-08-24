@@ -1,12 +1,8 @@
-﻿using BoltFreezer.Interfaces;
-using BoltFreezer.Utilities;
-using Priority_Queue;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading;
 
+using BoltFreezer.Interfaces;
+using BoltFreezer.Utilities;
 using BoltFreezer.Enums;
 
 namespace BoltFreezer.PlanTools
@@ -26,16 +22,16 @@ namespace BoltFreezer.PlanTools
 
         FlawType IFlaw.Ftype
         {
-            get{ return FlawType.Condition;}
+            get { return FlawType.Condition; }
         }
 
-        public OpenCondition ()
+        public OpenCondition()
         {
             precondition = new Predicate();
             step = new PlanStep();
         }
 
-        public OpenCondition (IPredicate precondition, IPlanStep step)
+        public OpenCondition(IPredicate precondition, IPlanStep step)
         {
             this.precondition = precondition;
             this.step = step;
@@ -47,7 +43,7 @@ namespace BoltFreezer.PlanTools
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("Flaw: " + precondition);
-                
+
             sb.AppendLine("Step: " + step);
 
             return sb.ToString();
@@ -118,14 +114,14 @@ namespace BoltFreezer.PlanTools
 
         }
 
-        public static bool operator < (OpenCondition self, OpenCondition other)
+        public static bool operator <(OpenCondition self, OpenCondition other)
         {
             if (self.CompareTo(other) < 0)
                 return true;
             return false;
         }
 
-        public static bool operator > (OpenCondition self, OpenCondition other)
+        public static bool operator >(OpenCondition self, OpenCondition other)
         {
             if (self.CompareTo(other) > 0)
                 return true;
@@ -239,5 +235,5 @@ namespace BoltFreezer.PlanTools
     }
 
 
-    
+
 }

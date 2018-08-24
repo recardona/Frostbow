@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 
@@ -47,7 +45,7 @@ namespace BoltFreezer.PlanTools
         // Access the problem's player.
         public string Player
         {
-            get 
+            get
             {
                 if (player.Equals(""))
                     player = FindPlayer();
@@ -88,7 +86,7 @@ namespace BoltFreezer.PlanTools
         // Access the problem's type list.
         public Hashtable TypeList
         {
-            get 
+            get
             {
                 typeList = new Hashtable();
 
@@ -155,7 +153,7 @@ namespace BoltFreezer.PlanTools
             }
         }
 
-        public Problem ()
+        public Problem()
         {
             name = "";
             originalName = "";
@@ -265,7 +263,7 @@ namespace BoltFreezer.PlanTools
                 newGoal.Add(pred.Clone() as Predicate);
 
             // Return the new domain object.
-            return new Problem (newName, newOriginalName, newDomain, newPlayer, newObjects, newInitial, newGoal);
+            return new Problem(newName, newOriginalName, newDomain, newPlayer, newObjects, newInitial, newGoal);
         }
 
         // Returns a hashcode.

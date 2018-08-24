@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 using BoltFreezer.Enums;
@@ -45,7 +43,7 @@ namespace BoltFreezer.PlanTools
         // Domains have a list of object types.
         public List<string> ObjectTypes
         {
-            get 
+            get
             {
                 List<string> types = new List<string>();
 
@@ -77,7 +75,7 @@ namespace BoltFreezer.PlanTools
             set { predicates = value; }
         }
 
-        public Domain ()
+        public Domain()
         {
             name = "";
             type = new PlanType();
@@ -143,7 +141,7 @@ namespace BoltFreezer.PlanTools
             // Return all sub-types associated with the given type.
             if (objectTypes.ContainsKey(type))
                 return objectTypes[type] as List<string>;
-            
+
             return new List<string>();
         }
 
@@ -206,7 +204,7 @@ namespace BoltFreezer.PlanTools
 
             return null;
         }
-        
+
         // Displays the contents of the domain.
         public override string ToString()
         {

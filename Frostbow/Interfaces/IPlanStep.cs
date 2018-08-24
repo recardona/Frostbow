@@ -1,6 +1,4 @@
-﻿using BoltFreezer.PlanTools;
-using BoltFreezer.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BoltFreezer.Interfaces
@@ -24,5 +22,5 @@ namespace BoltFreezer.Interfaces
         new Object Clone();
     }
 
-    
+
 }

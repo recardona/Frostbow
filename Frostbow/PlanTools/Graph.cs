@@ -1,10 +1,6 @@
-﻿using BoltFreezer.Interfaces;
-using BoltFreezer.Utilities;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 
 namespace BoltFreezer.PlanTools
 {

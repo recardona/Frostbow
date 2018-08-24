@@ -1,10 +1,8 @@
-﻿using BoltFreezer.Interfaces;
-using BoltFreezer.Utilities;
-using BoltFreezer.Enums;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+
+using BoltFreezer.Interfaces;
 
 namespace BoltFreezer.PlanTools
 {
@@ -13,7 +11,7 @@ namespace BoltFreezer.PlanTools
     {
         // Cannot use heap because the values are mutable and won't be kept sorted unless they are all re-inserted. If we have to do that, there's no benefit
         public List<OpenCondition> OpenConditions;
-        
+
         // LIFO
         private Stack<ThreatenedLinkFlaw> threatenedLinks;
 
@@ -46,7 +44,7 @@ namespace BoltFreezer.PlanTools
             // Calculate risks and cndts
             foreach (var step in plan.Steps)
             {
-                
+
                 if (step.ID == oc.step.ID)
                     continue;
 
@@ -104,7 +102,7 @@ namespace BoltFreezer.PlanTools
 
             var best_flaw = OpenConditions[0].Clone() as OpenCondition;
 
-            foreach(var oc in OpenConditions.Skip(1))
+            foreach (var oc in OpenConditions.Skip(1))
             {
                 if (oc < best_flaw)
                     best_flaw = oc;

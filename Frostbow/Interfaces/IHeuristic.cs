@@ -1,5 +1,4 @@
-﻿
-using BoltFreezer.Enums;
+﻿using BoltFreezer.Enums;
 
 namespace BoltFreezer.Interfaces
 {

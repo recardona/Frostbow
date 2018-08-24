@@ -1,8 +1,6 @@
-﻿using BoltFreezer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+
+using BoltFreezer.Interfaces;
 
 namespace BoltFreezer.Utilities
 {
@@ -14,7 +12,7 @@ namespace BoltFreezer.Utilities
         /// <param name="x">The first set of literals.</param>
         /// <param name="y">The second set of literals.</param>
         /// <returns></returns>
-        public bool Equals (List<IPredicate> x, List<IPredicate> y)
+        public bool Equals(List<IPredicate> x, List<IPredicate> y)
         {
             // Loop through each literal in the first list.
             foreach (IPredicate pred in x)

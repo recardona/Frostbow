@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 
@@ -44,7 +43,7 @@ namespace BoltFreezer.PlanTools
             get { return terms.Count; }
         }
 
-        public Predicate ()
+        public Predicate()
         {
             name = "";
             terms = new List<ITerm>();
@@ -52,7 +51,7 @@ namespace BoltFreezer.PlanTools
             observing = new Hashtable();
         }
 
-        public Predicate (string name, List<ITerm> terms, bool sign)
+        public Predicate(string name, List<ITerm> terms, bool sign)
         {
             this.name = name;
             this.terms = terms;
@@ -69,13 +68,13 @@ namespace BoltFreezer.PlanTools
         }
 
         // Records an observation.
-        public void Observes (string character, bool observation)
+        public void Observes(string character, bool observation)
         {
             observing[character] = observation;
         }
 
         // Returns an observation.
-        public bool Observing (string character)
+        public bool Observing(string character)
         {
             if (observing.ContainsKey(character))
                 return (bool)observing[character];
@@ -84,7 +83,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Return the term at the nth position.
-        public ITerm TermAt (int position)
+        public ITerm TermAt(int position)
         {
             // Check to see if the term exists.
             if (Arity >= position + 1)
@@ -105,7 +104,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Checks to see if another predicate is inverse.
-        public bool IsInverse (IPredicate predicate)
+        public bool IsInverse(IPredicate predicate)
         {
             Predicate pred = predicate as Predicate;
             if (ToStringPositive().Equals(pred.ToStringPositive()))
@@ -116,7 +115,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Checks if two predicates are equal.
-        public Boolean EqualToPred (Predicate pred, Hashtable binds)
+        public Boolean EqualToPred(Predicate pred, Hashtable binds)
         {
             // If the predicates share a name.
             if (pred.name.Equals(name))
@@ -143,7 +142,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Checks whether the predicate is in a state.
-        public Boolean InState (List<IPredicate> state, Hashtable binds)
+        public Boolean InState(List<IPredicate> state, Hashtable binds)
         {
             // Loop through the state's predicates.
             foreach (Predicate pred in state)
@@ -183,7 +182,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Checks for bad bindings.
-        public Hashtable Extend (IPredicate match, Hashtable binds)
+        public Hashtable Extend(IPredicate match, Hashtable binds)
         {
             // Loop through the predicate's terms.
             for (int i = 0; i < terms.Count; i++)
@@ -208,7 +207,7 @@ namespace BoltFreezer.PlanTools
                 {
                     // Otherwise, create a new binding.
                     binds[terms[i]] = match.Terms[i];
-                } 
+                }
             }
 
             // Return the new bindings.
@@ -216,14 +215,14 @@ namespace BoltFreezer.PlanTools
         }
 
         // Rewrites term variables to their bindings.
-        public void BindTerms (Hashtable binds)
+        public void BindTerms(Hashtable binds)
         {
             foreach (ITerm term in terms)
                 if (binds.ContainsKey(term.Variable))
                     term.Constant = binds[term.Variable] as string;
         }
 
-        public void BindTerm (string constant, int position)
+        public void BindTerm(string constant, int position)
         {
             TermAt(position).Constant = constant;
         }

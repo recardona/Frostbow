@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 using BoltFreezer.Interfaces;
@@ -15,30 +13,30 @@ namespace BoltFreezer.PlanTools
         private string type;
 
         // Terms may have a variable symbol.
-        public string Variable 
+        public string Variable
         {
             get { return variable; }
             set { variable = value; }
         }
 
         // Terms may have a constant symbol.
-        public string Constant 
+        public string Constant
         {
             get { return constant; }
             set { constant = value; }
         }
 
         // Terms may have an associated type.
-        public string Type 
+        public string Type
         {
             get { return type; }
             set { type = value; }
         }
 
         // Terms may be bound or unbound.
-        public bool Bound 
+        public bool Bound
         {
-            get 
+            get
             {
                 if (constant.Equals(""))
                     return false;
@@ -47,21 +45,21 @@ namespace BoltFreezer.PlanTools
             }
         }
 
-        public Term ()
+        public Term()
         {
             variable = "";
             constant = "";
             type = "";
         }
 
-        public Term (string variable)
+        public Term(string variable)
         {
             this.variable = variable;
             constant = "";
             type = "";
         }
 
-        public Term (string constant, bool bound)
+        public Term(string constant, bool bound)
         {
             variable = "";
             this.constant = constant;
@@ -75,7 +73,7 @@ namespace BoltFreezer.PlanTools
             type = "";
         }
 
-        public Term (string variable, string constant, string type)
+        public Term(string variable, string constant, string type)
         {
             this.variable = variable;
             this.constant = constant;
@@ -100,7 +98,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Return a clone of the term.
-        public object Clone ()
+        public object Clone()
         {
             return new Term(variable, constant, type);
         }

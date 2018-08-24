@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 using BoltFreezer.Interfaces;
 using BoltFreezer.Utilities;
@@ -65,7 +64,7 @@ namespace BoltFreezer.PlanTools
             }
         }
 
-        public State ()
+        public State()
         {
             table = new Hashtable();
             lastStep = new Operator();
@@ -106,7 +105,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Check to see if a predicate is true in the current state.
-        public bool InState (IPredicate predicate)
+        public bool InState(IPredicate predicate)
         {
             if (predicate.Sign)
             {
@@ -126,7 +125,7 @@ namespace BoltFreezer.PlanTools
             }
         }
 
-        public bool SuperposedInState (IPredicate predicate)
+        public bool SuperposedInState(IPredicate predicate)
         {
             if (predicate.Sign)
             {
@@ -147,7 +146,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Checks to see if the state contains certain predicates.
-        public bool Satisfies (List<IPredicate> predicates)
+        public bool Satisfies(List<IPredicate> predicates)
         {
             foreach (IPredicate predicate in predicates)
                 if (!InState(predicate))
@@ -162,7 +161,7 @@ namespace BoltFreezer.PlanTools
         /// <param name="predicates">The formulae that must be determined.</param>
         /// <param name="superposition">The maybe state.</param>
         /// <returns></returns>
-        public bool Satisfies (List<IPredicate> predicates, State superposition)
+        public bool Satisfies(List<IPredicate> predicates, State superposition)
         {
             foreach (IPredicate predicate in predicates)
                 if (!InState(predicate) && !superposition.SuperposedInState(predicate))
@@ -172,7 +171,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Apply an operator's effects to the current state.
-        public State NewState (Operator action, List<IObject> objects)
+        public State NewState(Operator action, List<IObject> objects)
         {
             // Create a new state object.
             State state = new State();
@@ -189,7 +188,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Find applicable conditional effects.
-        public List<IAxiom> ApplicableConditionals (Operator action, List<IObject> objects)
+        public List<IAxiom> ApplicableConditionals(Operator action, List<IObject> objects)
         {
             // Store the conditional axioms that are true in the current state.
             List<IAxiom> applicableEffects = new List<IAxiom>();
@@ -261,7 +260,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Apply an operator's effects to the current state.
-        public List<IPredicate> ApplyAction (Operator action, List<IObject> objects)
+        public List<IPredicate> ApplyAction(Operator action, List<IObject> objects)
         {
             // Create a new set of predicates.
             List<IPredicate> newPredicates = new List<IPredicate>();
@@ -370,7 +369,7 @@ namespace BoltFreezer.PlanTools
             return;
         }
 
-        public List<IPredicate> Difference (State other)
+        public List<IPredicate> Difference(State other)
         {
             List<IPredicate> difference = new List<IPredicate>();
             foreach (Predicate pred in Predicates)
@@ -445,7 +444,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Creates a clone of the state.
-        public virtual Object Clone ()
+        public virtual Object Clone()
         {
             List<Hashtable> newApplicables = new List<Hashtable>();
             foreach (Hashtable applicable in applicables)

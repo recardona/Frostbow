@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-
-using BoltFreezer.PlanTools;
 
 namespace BoltFreezer.Interfaces
 {
@@ -27,10 +22,10 @@ namespace BoltFreezer.Interfaces
         int Arity { get; }
 
         // Lock the axiom's bindings.
-        void BindTerms ();
+        void BindTerms();
 
         // Returns the term at a position.
-        string TermAt (int position);
+        string TermAt(int position);
 
         // An axiom can clone itself.
         Object Clone();

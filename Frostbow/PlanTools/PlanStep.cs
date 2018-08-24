@@ -1,7 +1,6 @@
 ﻿using BoltFreezer.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BoltFreezer.PlanTools
 {
@@ -39,7 +38,7 @@ namespace BoltFreezer.PlanTools
         }
 
         // Inherit from IOperator
-        public IPredicate Predicate { get => Action.Predicate; set => Action.Predicate=  value; }
+        public IPredicate Predicate { get => Action.Predicate; set => Action.Predicate = value; }
         public string Name { get => Action.Name; set => Action.Name = value; }
         public List<ITerm> Terms { get => Action.Terms; set => Action.Terms = value; }
         public int Arity => Action.Arity;
@@ -94,7 +93,7 @@ namespace BoltFreezer.PlanTools
             }
         }
 
-        public PlanStep (IOperator groundAction, int _id)
+        public PlanStep(IOperator groundAction, int _id)
         {
             action = groundAction;
             id = _id;

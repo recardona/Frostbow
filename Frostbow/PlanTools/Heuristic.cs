@@ -1,9 +1,7 @@
-﻿
-using BoltFreezer.Enums;
+﻿using BoltFreezer.Enums;
 using BoltFreezer.Interfaces;
 using BoltFreezer.Utilities;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BoltFreezer.PlanTools
 {
@@ -73,7 +71,7 @@ namespace BoltFreezer.PlanTools
         // h^r_add(pi) = sum_(oc in plan) 0 if exists a step possibly preceding oc.step and h_add(oc.precondition) otherwise.
         public static int AddReuseHeuristic(IPlan plan)
         {
-           // Logger.LogThingToType("AddReuse", " ", "HeuristicNew");
+            // Logger.LogThingToType("AddReuse", " ", "HeuristicNew");
             //Logger.LogThingToType("AddReuse", " ", "HeuristicOld");
 
             var tuplemapping = new TupleMap<IPredicate, List<IPlanStep>>();
@@ -148,7 +146,7 @@ namespace BoltFreezer.PlanTools
             foreach (var oc in plan.Flaws.OpenConditions)
             {
 
-               // var wayBefore = Logger.Log();
+                // var wayBefore = Logger.Log();
                 // Does there exist a step in the plan that can establish this needed precondition?
                 var existsA = false;
                 foreach (var existingStep in plan.Steps)

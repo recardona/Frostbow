@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 namespace BoltFreezer.Interfaces
 {
@@ -22,10 +19,10 @@ namespace BoltFreezer.Interfaces
         int Arity { get; }
 
         // Records an observation.
-        void Observes (string character, bool observation);
+        void Observes(string character, bool observation);
 
         // Returns an observation.
-        bool Observing (string character);
+        bool Observing(string character);
 
         // Returns the term at the nth position.
         ITerm TermAt(int position);
@@ -40,7 +37,7 @@ namespace BoltFreezer.Interfaces
         bool InState(List<IPredicate> state, Hashtable binds);
 
         // Rewrites term variables to their bindings.
-        void BindTerms (Hashtable binds);
+        void BindTerms(Hashtable binds);
 
         // Displays the content of the predicate without a not.
         string ToStringPositive();
